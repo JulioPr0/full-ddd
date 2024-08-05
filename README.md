@@ -6,13 +6,13 @@ This application is a RESTful API built using the Laravel framework. By adopting
 
 ## Installation
 
-1. **Clone Repositori**
+1. **Clone Repository**
 
     ```bash
-    git clone https://github.com/username/repo.git
+    git@github.com:JulioPr0/full-ddd.git
     ```
 
-2. **Install Dependensi**
+2. **Install Dependencies**
 
     ```bash
     cd project-folder
@@ -21,15 +21,18 @@ This application is a RESTful API built using the Laravel framework. By adopting
 
 3. **Configure Environment**
 
-    Duplicate the .env.example file as .env and adjust the environment settings (such as database settings).
+    Duplicate the `.env.example` file as `.env` and adjust the environment settings (such as database settings).
+   ```bash
+   cp .env.example .env
+   ```
 
-4. **Migration and Seeding (Optional)**
+5. **Migration and Seeding (Optional)**
 
     ```bash
     php artisan migrate --seed
     ```
 
-5. **Run Local Server**
+6. **Run Local Server**
 
     ```bash
     php artisan serve
@@ -72,15 +75,46 @@ Use cases often include business logic. When describing the steps in a use case,
 
 ### Products
 
-Inside the `Application/usecase/products` directory, you will find the implementation of usecases for product management. This allows you to perform CRUD operations on user entities.
+Inside the `Application/usecase/products` directory, you will find the implementation of use cases for product management. This allows you to perform CRUD operations on user entities.
 
 ## Testing
 
-We provide tests covering various aspects of application functionality. These tests are located in the `_test` directories in each layer of the application, including usecases, entities, and controllers.
+We provide tests covering various aspects of application functionality. These tests are located in the `_test` directories in each layer of the application, including use cases, entities, and controllers.
 
 ```bash
-   php artisan test
+php artisan test
 ```
+
+## General Steps
+1. **Domain and Subdomain Identification**
+   
+   Create a ProductTest.php file in `app/Domain/product/entities/_test/`
+   
+   Determine the main business domain and relevant subdomains.
+   
+2. **Create a Domain Model**
+
+   Create a Product.php file in `app/Domain/product/entities/`
+   
+   Create a domain model that includes entities, object values, and aggregates.
+   
+3. **Writing a Unit Test**
+
+   Create the AddProductUseCaseTest.php file in `app/Application/usecase/products/core/_test/`
+
+   Start by writing unit tests for entities and use cases.
+   
+4. **Code Implementation**
+
+   Create the AddProductUseCase.php file in `app/Application/usecase/products/core/`
+  
+   Implement the code required to make the test pass.
+
+5. **Refactor**
+   
+   Create a ProductRepository.php file in `app/Domain/product/`
+
+   Refactor code to improve quality without changing functionality.
 
 ## Contribution
 
